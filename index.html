@@ -1,104 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RO Plant Simulator</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-        }
-    </script>
-    <style>
-      html, body {
-        font-family: 'Inter', sans-serif;
-      }
-      /* Custom animation for flowing water in pipes */
-      @keyframes flow {
-        from { background-position: 0 0; }
-        to { background-position: 40px 0; }
-      }
-      .animate-flow {
-        background-image: linear-gradient(
-          45deg,
-          rgba(255, 255, 255, 0.2) 25%,
-          transparent 25%,
-          transparent 50%,
-          rgba(255, 255, 255, 0.2) 50%,
-          rgba(255, 255, 255, 0.2) 75%,
-          transparent 75%,
-          transparent
-        );
-        animation: flow 1s linear infinite;
-      }
-
-      /* Custom animation for slow pulsing */
-      @keyframes pulse-slow {
-        50% { opacity: .7; }
-      }
-      .animate-pulse-slow {
-        animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-      }
-
-      /* Custom slow spin animation */
-      @keyframes spin-slow {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-      .animate-spin-slow {
-        animation: spin-slow 3s linear infinite;
-      }
-
-      /* Custom styles for range slider track color based on severity */
-      .slider-normal::-webkit-slider-runnable-track { background: #38bdf8; } /* sky-400 */
-      .slider-normal::-moz-range-track { background: #38bdf8; }
-      
-      .slider-warning::-webkit-slider-runnable-track { background: #facc15; } /* yellow-400 */
-      .slider-warning::-moz-range-track { background: #facc15; }
-
-      .slider-critical::-webkit-slider-runnable-track { background: #f87171; } /* red-400 */
-      .slider-critical::-moz-range-track { background: #f87171; }
-      
-      /* Custom animation for spoofed gauge background */
-      @keyframes spoof-flash-light {
-        from { background-color: #fecaca; } /* red-200 */
-        to { background-color: #fca5a5; }   /* red-300 */
-      }
-      @keyframes spoof-flash-dark {
-        from { background-color: #7f1d1d; } /* red-900 */
-        to { background-color: #450a0a; }   /* red-950 */
-      }
-      .animate-spoof-flash {
-        animation: spoof-flash-light 1.5s ease-in-out infinite alternate;
-      }
-      .dark .animate-spoof-flash {
-        animation-name: spoof-flash-dark;
-      }
-    </style>
-<link rel="stylesheet" href="/index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RO Cyber Risk Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <style>
+    html, body { font-family: 'Inter', sans-serif; }
+    @keyframes flow { from { background-position: 0 0; } to { background-position: 40px 0; } }
+    .animate-flow {
+      background-image: linear-gradient(45deg, rgba(255,255,255,.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.2) 50%, rgba(255,255,255,.2) 75%, transparent 75%, transparent);
+      animation: flow 1s linear infinite;
+    }
+    @keyframes pulse-slow { 50% { opacity: .7; } }
+    .animate-pulse-slow { animation: pulse-slow 2s cubic-bezier(0.4,0,0.6,1) infinite; }
+    @keyframes spin-slow { to { transform: rotate(360deg); } }
+    .animate-spin-slow { animation: spin-slow 3s linear infinite; }
+    .slider-normal::-webkit-slider-runnable-track, .slider-normal::-moz-range-track { background: #38bdf8; }
+    .slider-warning::-webkit-slider-runnable-track, .slider-warning::-moz-range-track { background: #facc15; }
+    .slider-critical::-webkit-slider-runnable-track, .slider-critical::-moz-range-track { background: #f87171; }
+    @keyframes spoof-flash-light { from { background-color: #fecaca; } to { background-color: #fca5a5; } }
+    @keyframes spoof-flash-dark { from { background-color: #7f1d1d; } to { background-color: #450a0a; } }
+    .animate-spoof-flash { animation: spoof-flash-light 1.5s ease-in-out infinite alternate; }
+    .dark .animate-spoof-flash { animation-name: spoof-flash-dark; }
+  </style>
 </head>
 <body class="bg-slate-100 dark:bg-slate-900">
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
 
-    <script type="importmap">
-{
-  "imports": {
-    "@google/genai": "https://esm.sh/@google/genai@^1.9.0",
-    "react": "https://esm.sh/react@^19.1.0",
-    "react-dom/client": "https://esm.sh/react-dom@^19.1.0/client",
-    "lucide-react": "https://esm.sh/lucide-react@^0.525.0",
-    "react/": "https://esm.sh/react@^19.1.0/",
-    "react-dom/": "https://esm.sh/react-dom@^19.1.0/"
+  <script type="importmap">
+  {
+    "imports": {
+      "@google/genai": "https://esm.sh/@google/genai@^1.9.0",
+      "react": "https://esm.sh/react@^19.1.0",
+      "react-dom/client": "https://esm.sh/react-dom@^19.1.0/client",
+      "lucide-react": "https://esm.sh/lucide-react@^0.525.0",
+      "react/": "https://esm.sh/react@^19.1.0/",
+      "react-dom/": "https://esm.sh/react-dom@^19.1.0/"
+    }
   }
-}
-</script>
-    <script type="module" src="./index.tsx"></script>
-<script type="module" src="/index.tsx"></script>
+  </script>
+  <script type="module" src="./index.js"></script>
 </body>
 </html>
