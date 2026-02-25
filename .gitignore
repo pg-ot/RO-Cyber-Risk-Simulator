@@ -1,0 +1,21 @@
+# Environment and secrets
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Build artifacts
+node_modules/
+dist/
+build/
+
+# Python artifacts
+__pycache__/
+*.pyc
+
+# OS/editor files
+.DS_Store
+.vscode/
+.idea/
