@@ -1,25 +1,29 @@
 # Contributing
 
-Thanks for your interest in contributing to **RO-Cyber-Risk-Simulator**.
+Thanks for contributing to **RO-Cyber-Risk-Simulator**.
 
-## Current Project State
+## Before You Start
 
-This project is currently pre-release and in early setup. Please open an issue before large implementation work so scope can be aligned.
+This project is pre-release. Please open an issue before starting large features so maintainers can align scope.
 
-## Development Guidelines
+## Contribution Workflow
 
-1. Create a branch from `main`/active default branch.
-2. Keep changes focused and small.
-3. Add or update tests with code changes.
-4. Never commit secrets (`.env`, API keys, private keys).
-5. Update docs when behavior or setup changes.
+1. Fork or branch from the default branch.
+2. Make focused changes in small commits.
+3. Update documentation alongside behavioral/setup changes.
+4. Add or update tests when application code is introduced.
+5. Open a pull request using the PR template.
 
-## Pull Requests
+## Pull Request Expectations
 
-- Use clear titles and include motivation + testing evidence.
-- Link related issues.
-- Include screenshots for UI changes.
+- Clear title and summary.
+- Motivation/business context.
+- Testing evidence (commands + outcomes).
+- Screenshots for visual/UI changes.
+- No secrets/credentials in code or history.
 
-## Security
+## Code & Security Rules
 
-If your finding is security-related, follow `SECURITY.md` instead of opening a public issue.
+- Never commit `.env` files, API keys, tokens, or private keys.
+- Prefer environment variables and secret managers.
+- If reporting a vulnerability, follow `SECURITY.md` instead of public issues.
