@@ -12,25 +12,31 @@ Interactive browser-based simulation of a desalination plant cyber-physical atta
 
 ## Installation & Usage
 
-This app runs as static frontend files.
+For the full step-by-step manual (from `git clone` to opening the simulator page), see:
+- `docs/INSTALLATION_RUN_MANUAL.md`
 
-1. Serve the repository with a local HTTP server:
+Quick start:
+
+1. Clone repository:
+
+```bash
+git clone https://github.com/pg-ot/RO-Cyber-Risk-Simulator.git
+cd RO-Cyber-Risk-Simulator
+```
+
+2. Start local server:
 
 ```bash
 python -m http.server 4173
 ```
 
-2. Open the simulator in browser:
+3. Open:
 
 ```text
 http://localhost:4173/index.html
 ```
 
-3. Start simulation with **START SIMULATION**.
-4. Adjust controls and observe impact/alerts.
-5. (Optional) Click **Analyze Incident** when simulation is stopped.
-   - Enter Gemini API key when prompted.
-   - Key is stored in browser `localStorage` as `GEMINI_API_KEY`.
+4. Click **START SIMULATION**.
 
 ## Repository Structure
 
@@ -40,6 +46,7 @@ http://localhost:4173/index.html
 - `SECURITY.md` – vulnerability reporting and credential policy.
 - `docs/PUBLIC_RELEASE_AUDIT.md` – release-readiness and indicator scan notes.
 - `docs/PROJECT_UNDERSTANDING.md` – current project understanding and roadmap.
+- `docs/INSTALLATION_RUN_MANUAL.md` – detailed installation/run guide from clone to browser access.
 - `.github/ISSUE_TEMPLATE/*` – issue templates.
 - `.github/pull_request_template.md` – pull request checklist.
 
